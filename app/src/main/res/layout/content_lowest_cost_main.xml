@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jfpdazey.pathoflowestcost.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context=".PathOfLowestCostActivity"
+    tools:showIn="@layout/activity_lowest_cost_main">
 
     <TextView
         android:id="@+id/select_label"
