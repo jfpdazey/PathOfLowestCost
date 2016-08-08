@@ -1,5 +1,6 @@
 package com.jfpdazey.pathoflowestcost;
 
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -43,5 +45,29 @@ public class PathOfLowestCostActivityTest {
 
         String gridContents = ((TextView) activity.findViewById(R.id.grid_contents)).getText().toString();
         assertThat(gridContents, equalTo(expectedContents));
+    }
+
+    @Test
+    public void goButtonIsDisabledByDefault() {
+        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
+        Button goButton = (Button) activity.findViewById(R.id.go_button);
+        assertThat(goButton.isEnabled(), is(false));
+    }
+
+    @Test
+    public void clickingAnyExampleGridButtonEnablesGoButton() {
+        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
+        Button goButton = (Button) activity.findViewById(R.id.go_button);
+
+        activity.findViewById(R.id.grid_1_button).performClick();
+        assertThat(goButton.isEnabled(), is(true));
+        goButton.setEnabled(false);
+
+        activity.findViewById(R.id.grid_2_button).performClick();
+        assertThat(goButton.isEnabled(), is(true));
+        goButton.setEnabled(false);
+
+        activity.findViewById(R.id.grid_3_button).performClick();
+        assertThat(goButton.isEnabled(), is(true));
     }
 }

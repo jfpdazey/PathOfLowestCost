@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class PathOfLowestCostActivity extends AppCompatActivity {
@@ -65,6 +66,7 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
     public void buttonForGridClicked(View view) {
         String gridContents = getGridContentsForButton(view);
         ((TextView) findViewById(R.id.grid_contents)).setText(gridContents);
+        ((Button) findViewById(R.id.go_button)).setEnabled(true);
     }
 
     private String getGridContentsForButton(View view) {

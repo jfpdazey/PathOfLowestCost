@@ -63,7 +63,8 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/go_label"
         android:layout_marginBottom="20dp"
-        android:text="GO!"/>
+        android:enabled="false"
+        android:text="GO!" />
 
     <TextView
         android:id="@+id/grid_label"
