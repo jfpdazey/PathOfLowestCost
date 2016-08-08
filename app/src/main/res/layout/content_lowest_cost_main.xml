@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:fontFamily="monospace"
-            android:text="No results" />
+            android:text="@string/no_results" />
         <TextView
             android:id="@+id/results_path_taken"
             android:layout_width="match_parent"

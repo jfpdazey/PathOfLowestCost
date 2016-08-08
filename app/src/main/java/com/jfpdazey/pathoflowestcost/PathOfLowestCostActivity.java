@@ -106,7 +106,7 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
 
     private void clearResults() {
         ((TextView) findViewById(R.id.results_success)).setText("");
-        ((TextView) findViewById(R.id.results_total_cost)).setText("No results");
+        ((TextView) findViewById(R.id.results_total_cost)).setText(getResources().getText(R.string.no_results));
         ((TextView) findViewById(R.id.results_path_taken)).setText("");
     }
 
