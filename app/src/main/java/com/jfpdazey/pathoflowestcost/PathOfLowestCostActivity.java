@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class PathOfLowestCostActivity extends AppCompatActivity {
 
     public static final Grid EXAMPLE_GRID_1 = new Grid(new int[][]{
@@ -80,6 +82,8 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
         } else {
             ((TextView) findViewById(R.id.results_success)).setText("No");
         }
+        ((TextView) findViewById(R.id.results_total_cost)).setText(Integer.toString(bestPath.getTotalCost()));
+        ((TextView) findViewById(R.id.results_path_taken)).setText(formatPath(bestPath));
     }
 
     private Grid getGridForButton(View view) {
@@ -93,5 +97,19 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
             default:
                 return null;
         }
+    }
+
+    private String formatPath(PathState path) {
+        StringBuilder builder = new StringBuilder();
+        List<Integer> rows = path.getRowsTraversed();
+
+        for (int i = 0; i < rows.size(); i++) {
+            builder.append(rows.get(i));
+            if (i < rows.size() - 1) {
+                builder.append("\t");
+            }
+        }
+
+        return builder.toString();
     }
 }

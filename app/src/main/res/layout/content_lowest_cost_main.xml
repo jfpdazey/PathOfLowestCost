@@ -22,6 +22,7 @@
 
     <LinearLayout
         android:id="@+id/load_buttons"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -99,21 +100,32 @@
 
     <LinearLayout
         android:id="@+id/results_layout"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:background="@drawable/back"
         android:layout_below="@id/results_label">
-
-    <TextView
-        android:id="@+id/results_success"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="monospace"
-        android:text="No results" />
+        <TextView
+            android:id="@+id/results_success"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="monospace" />
+        <TextView
+            android:id="@+id/results_total_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="monospace"
+            android:text="No results" />
+        <TextView
+            android:id="@+id/results_path_taken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:fontFamily="monospace" />
     </LinearLayout>
 
 </RelativeLayout>

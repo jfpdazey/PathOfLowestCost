@@ -92,12 +92,21 @@ public class PathOfLowestCostActivityTest {
         assertThat(resultsView.getText().toString(), equalTo("No"));
     }
 
-//    @Test
-//    public void clickingGoAfterClickingAGridButtonDisplaysTotalScoreOfPathOnSecondLineOfResults() {
-//        activity.findViewById(R.id.grid_1_button).performClick();
-//        activity.findViewById(R.id.go_button).performClick();
-//
-//        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
-//        assertThat(resultsView.getText().toString(), equalTo("Yes"));
-//    }
+    @Test
+    public void clickingGoAfterClickingAGridButtonDisplaysTotalCostOfPathOnSecondLineOfResults() {
+        activity.findViewById(R.id.grid_2_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_total_cost);
+        assertThat(resultsView.getText().toString(), equalTo("11"));
+    }
+
+    @Test
+    public void clickingGoAfterClickingAGridButtonDisplaysPathTakenOnThirdLineOfResults() {
+        activity.findViewById(R.id.grid_1_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_path_taken);
+        assertThat(resultsView.getText().toString(), equalTo("1\t2\t3\t4\t4\t5"));
+    }
 }
