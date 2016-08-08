@@ -3,6 +3,8 @@ This is an Android implementation of the Path Of Lowest Cost kata. See below for
 
 ##Build/test
 The application uses Gradle.  After cloning, you can run various tasks:
+* `./gradlew test` to test
+* `./gradlew build` to build
 
 Of course, you can always import it into Android Studio...
 
@@ -12,7 +14,7 @@ This project utilizes a separate Java library (PathOfLowestCost-lib).
 To update the library and integrate it into this project:
 * clone the project (found at <https://github.com/jfpdazey/PathOfLowestCost-lib>)
 * archive it;
-* copy the resulting JAR file into this project's `libs` directory.
+* copy the resulting JAR file into this project's `app/libs` directory.
 
 ##The kata
 ###The Challenge
