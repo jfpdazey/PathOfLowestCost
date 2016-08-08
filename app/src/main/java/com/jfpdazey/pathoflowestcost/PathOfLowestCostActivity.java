@@ -33,6 +33,8 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
             { 20, 12, 20, 11, 10 }
     });
 
+    private Grid loadedGrid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,26 +66,31 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
     }
 
     public void buttonForGridClicked(View view) {
-        String gridContents = getGridContentsForButton(view);
-        ((TextView) findViewById(R.id.grid_contents)).setText(gridContents);
+        loadedGrid = getGridForButton(view);
+        ((TextView) findViewById(R.id.grid_contents)).setText(loadedGrid.asDelimitedString("\t"));
         ((Button) findViewById(R.id.go_button)).setEnabled(true);
     }
 
-    private String getGridContentsForButton(View view) {
-        String contents = "";
+    public void goButtonClicked(View view) {
+        GridVisitor visitor = new GridVisitor(loadedGrid);
+        PathState bestPath = visitor.visitPathsForAllRows().get(0);
+        if (bestPath.isSuccessful()) {
+            ((TextView) findViewById(R.id.results_contents)).setText("Yes");
+        } else {
+            ((TextView) findViewById(R.id.results_contents)).setText("No");
+        }
+    }
 
+    private Grid getGridForButton(View view) {
         switch (view.getId()) {
             case R.id.grid_1_button:
-                contents = EXAMPLE_GRID_1.asDelimitedString("\t");
-                break;
+                return EXAMPLE_GRID_1;
             case R.id.grid_2_button:
-                contents = EXAMPLE_GRID_2.asDelimitedString("\t");
-                break;
+                return EXAMPLE_GRID_2;
             case R.id.grid_3_button:
-                contents = EXAMPLE_GRID_3.asDelimitedString("\t");
-                break;
+                return EXAMPLE_GRID_3;
+            default:
+                return null;
         }
-
-        return contents;
     }
 }

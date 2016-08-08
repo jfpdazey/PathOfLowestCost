@@ -70,4 +70,24 @@ public class PathOfLowestCostActivityTest {
         activity.findViewById(R.id.grid_3_button).performClick();
         assertThat(goButton.isEnabled(), is(true));
     }
+
+    @Test
+    public void clickingGoAfterClickingAGridButtonDisplaysYesIfPathSuccessful() {
+        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
+        activity.findViewById(R.id.grid_1_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
+        assertThat(resultsView.getText().toString(), equalTo("Yes"));
+    }
+
+    @Test
+    public void clickingGoAfterClickingAGridButtonDisplaysNoIfPathNotSuccessful() {
+        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
+        activity.findViewById(R.id.grid_3_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
+        assertThat(resultsView.getText().toString(), equalTo("No"));
+    }
 }

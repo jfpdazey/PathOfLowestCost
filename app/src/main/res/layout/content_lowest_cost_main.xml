@@ -64,7 +64,8 @@
         android:layout_below="@id/go_label"
         android:layout_marginBottom="20dp"
         android:enabled="false"
-        android:text="GO!" />
+        android:text="GO!"
+        android:onClick="goButtonClicked" />
 
     <TextView
         android:id="@+id/grid_label"
