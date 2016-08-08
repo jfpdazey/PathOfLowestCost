@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Select a test data set from below" />
+        android:text="Select a test data set from below:" />
 
     <LinearLayout
         android:id="@+id/load_buttons"
@@ -28,17 +28,23 @@
         android:layout_marginBottom="20dp"
         android:layout_below="@id/select_label">
         <Button
+            android:id="@+id/grid_1_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 1"/>
+            android:text="Example 1"
+            android:onClick="buttonForGridClicked" />
         <Button
+            android:id="@+id/grid_2_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 2"/>
+            android:text="Example 2"
+            android:onClick="buttonForGridClicked" />
         <Button
+            android:id="@+id/grid_3_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 3"/>
+            android:text="Example 3"
+            android:onClick="buttonForGridClicked" />
     </LinearLayout>
 
     <TextView
@@ -48,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/load_buttons"
         android:layout_marginBottom="10dp"
-        android:text="Then click below to find the lowest cost path" />
+        android:text="Then click below to find the lowest cost path:" />
 
     <Button
         android:id="@+id/go_button"
