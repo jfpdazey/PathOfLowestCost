@@ -68,7 +68,12 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
     }
 
     public void buttonForGridClicked(View view) {
-        loadedGrid = getGridForButton(view);
+        Grid selectedGrid = getGridForButton(view);
+        if (!selectedGrid.equals(loadedGrid)) {
+            clearResults();
+        }
+
+        loadedGrid = selectedGrid;
         ((TextView) findViewById(R.id.grid_contents)).setText(loadedGrid.asDelimitedString("\t"));
         ((Button) findViewById(R.id.go_button)).setEnabled(true);
     }
@@ -97,6 +102,12 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
             default:
                 return null;
         }
+    }
+
+    private void clearResults() {
+        ((TextView) findViewById(R.id.results_success)).setText("");
+        ((TextView) findViewById(R.id.results_total_cost)).setText("No results");
+        ((TextView) findViewById(R.id.results_path_taken)).setText("");
     }
 
     private String formatPath(PathState path) {

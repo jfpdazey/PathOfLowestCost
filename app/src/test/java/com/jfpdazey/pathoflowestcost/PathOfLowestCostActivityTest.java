@@ -12,6 +12,7 @@ import org.robolectric.annotation.Config;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
 @RunWith(RobolectricGradleTestRunner.class)
@@ -108,5 +109,35 @@ public class PathOfLowestCostActivityTest {
 
         TextView resultsView = (TextView) activity.findViewById(R.id.results_path_taken);
         assertThat(resultsView.getText().toString(), equalTo("1\t2\t3\t4\t4\t5"));
+    }
+
+    @Test
+    public void selectingADifferentGridClearsResults() {
+        activity.findViewById(R.id.grid_1_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        activity.findViewById(R.id.grid_2_button).performClick();
+
+        TextView successView = (TextView) activity.findViewById(R.id.results_success);
+        assertThat(successView.getText().toString(), equalTo(""));
+        TextView costView = (TextView) activity.findViewById(R.id.results_total_cost);
+        assertThat(costView.getText().toString(), equalTo("No results"));
+        TextView pathView = (TextView) activity.findViewById(R.id.results_path_taken);
+        assertThat(pathView.getText().toString(), equalTo(""));
+    }
+
+    @Test
+    public void selectingTheSameGridDoesNotClearResults() {
+        activity.findViewById(R.id.grid_1_button).performClick();
+        activity.findViewById(R.id.go_button).performClick();
+
+        activity.findViewById(R.id.grid_1_button).performClick();
+
+        TextView successView = (TextView) activity.findViewById(R.id.results_success);
+        assertThat(successView.getText().toString(), not(equalTo("")));
+        TextView costView = (TextView) activity.findViewById(R.id.results_total_cost);
+        assertThat(costView.getText().toString(), not(equalTo("No results")));
+        TextView pathView = (TextView) activity.findViewById(R.id.results_path_taken);
+        assertThat(pathView.getText().toString(), not(equalTo("")));
     }
 }
