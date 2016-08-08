@@ -74,10 +74,11 @@ public class PathOfLowestCostActivity extends AppCompatActivity {
     public void goButtonClicked(View view) {
         GridVisitor visitor = new GridVisitor(loadedGrid);
         PathState bestPath = visitor.visitPathsForAllRows().get(0);
+
         if (bestPath.isSuccessful()) {
-            ((TextView) findViewById(R.id.results_contents)).setText("Yes");
+            ((TextView) findViewById(R.id.results_success)).setText("Yes");
         } else {
-            ((TextView) findViewById(R.id.results_contents)).setText("No");
+            ((TextView) findViewById(R.id.results_success)).setText("No");
         }
     }
 

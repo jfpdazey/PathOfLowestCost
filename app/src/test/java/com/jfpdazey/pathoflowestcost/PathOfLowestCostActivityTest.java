@@ -3,6 +3,7 @@ package com.jfpdazey.pathoflowestcost;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -17,9 +18,15 @@ import static org.junit.Assert.assertThat;
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml", packageName = "com.jfpdazey.pathoflowestcost")
 public class PathOfLowestCostActivityTest {
 
+    private PathOfLowestCostActivity activity;
+
+    @Before
+    public void setUp() {
+        activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
+    }
+
     @Test
     public void clickingExampleOneButtonLoadsExampleGridOne() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         String expectedContents = PathOfLowestCostActivity.EXAMPLE_GRID_1.asDelimitedString("\t");
         activity.findViewById(R.id.grid_1_button).performClick();
 
@@ -29,7 +36,6 @@ public class PathOfLowestCostActivityTest {
 
     @Test
     public void clickingExampleTwoButtonLoadsExampleGridTwo() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         String expectedContents = PathOfLowestCostActivity.EXAMPLE_GRID_2.asDelimitedString("\t");
         activity.findViewById(R.id.grid_2_button).performClick();
 
@@ -39,7 +45,6 @@ public class PathOfLowestCostActivityTest {
 
     @Test
     public void clickingExampleThreeButtonLoadsExampleGridThree() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         String expectedContents = PathOfLowestCostActivity.EXAMPLE_GRID_3.asDelimitedString("\t");
         activity.findViewById(R.id.grid_3_button).performClick();
 
@@ -49,14 +54,12 @@ public class PathOfLowestCostActivityTest {
 
     @Test
     public void goButtonIsDisabledByDefault() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         Button goButton = (Button) activity.findViewById(R.id.go_button);
         assertThat(goButton.isEnabled(), is(false));
     }
 
     @Test
     public void clickingAnyExampleGridButtonEnablesGoButton() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         Button goButton = (Button) activity.findViewById(R.id.go_button);
 
         activity.findViewById(R.id.grid_1_button).performClick();
@@ -73,21 +76,28 @@ public class PathOfLowestCostActivityTest {
 
     @Test
     public void clickingGoAfterClickingAGridButtonDisplaysYesIfPathSuccessful() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         activity.findViewById(R.id.grid_1_button).performClick();
         activity.findViewById(R.id.go_button).performClick();
 
-        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_success);
         assertThat(resultsView.getText().toString(), equalTo("Yes"));
     }
 
     @Test
     public void clickingGoAfterClickingAGridButtonDisplaysNoIfPathNotSuccessful() {
-        PathOfLowestCostActivity activity = Robolectric.setupActivity(PathOfLowestCostActivity.class);
         activity.findViewById(R.id.grid_3_button).performClick();
         activity.findViewById(R.id.go_button).performClick();
 
-        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
+        TextView resultsView = (TextView) activity.findViewById(R.id.results_success);
         assertThat(resultsView.getText().toString(), equalTo("No"));
     }
+
+//    @Test
+//    public void clickingGoAfterClickingAGridButtonDisplaysTotalScoreOfPathOnSecondLineOfResults() {
+//        activity.findViewById(R.id.grid_1_button).performClick();
+//        activity.findViewById(R.id.go_button).performClick();
+//
+//        TextView resultsView = (TextView) activity.findViewById(R.id.results_contents);
+//        assertThat(resultsView.getText().toString(), equalTo("Yes"));
+//    }
 }
