@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">PathOfLowestCost</string>
+    <string name="app_name">Path Of Lowest Cost</string>
     <string name="action_settings">Settings</string>
     <string name="no_results">No results</string>
+    <string name="select_a_test_select_data_set_message">Select a test data set from below:</string>
+    <string name="click_go_message">Then click below to find the lowest cost path:</string>
+    <string name="go_button_title">GO!</string>
+    <string name="example_1_button_title">Example 1</string>
+    <string name="example_2_button_title">Example 2</string>
+    <string name="example_3_button_title">Example 3</string>
+    <string name="grid_contents_title">Grid Contents</string>
+    <string name="grid_contents_default">Grid is empty</string>
+    <string name="results_title">Results</string>
 </resources>

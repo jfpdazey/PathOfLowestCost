@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:text="Select a test data set from below:" />
+        android:text="@string/select_a_test_select_data_set_message" />
 
     <LinearLayout
         android:id="@+id/load_buttons"
@@ -32,19 +32,19 @@
             android:id="@+id/grid_1_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 1"
+            android:text="@string/example_1_button_title"
             android:onClick="buttonForGridClicked" />
         <Button
             android:id="@+id/grid_2_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 2"
+            android:text="@string/example_2_button_title"
             android:onClick="buttonForGridClicked" />
         <Button
             android:id="@+id/grid_3_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Example 3"
+            android:text="@string/example_3_button_title"
             android:onClick="buttonForGridClicked" />
     </LinearLayout>
 
@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/load_buttons"
         android:layout_marginBottom="10dp"
-        android:text="Then click below to find the lowest cost path:" />
+        android:text="@string/click_go_message" />
 
     <Button
         android:id="@+id/go_button"
@@ -65,7 +65,7 @@
         android:layout_below="@id/go_label"
         android:layout_marginBottom="20dp"
         android:enabled="false"
-        android:text="GO!"
+        android:text="@string/go_button_title"
         android:onClick="goButtonClicked" />
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/go_button"
         android:layout_marginBottom="5dp"
-        android:text="Grid Contents" />
+        android:text="@string/grid_contents_title" />
 
     <TextView
         android:id="@+id/grid_contents"
@@ -87,7 +87,7 @@
         android:padding="10dp"
         android:fontFamily="monospace"
         android:background="@drawable/back"
-        android:text="Grid is empty" />
+        android:text="@string/grid_contents_default" />
 
     <TextView
         android:id="@+id/results_label"
@@ -96,7 +96,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/grid_contents"
         android:layout_marginBottom="5dp"
-        android:text="Results" />
+        android:text="@string/results_title" />
 
     <LinearLayout
         android:id="@+id/results_layout"
