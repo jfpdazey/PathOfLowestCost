@@ -19,20 +19,20 @@ import static org.robolectric.shadows.support.v4.SupportFragmentTestUtil.startFr
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml", packageName = "com.jfpdazey.pathoflowestcost")
-public class PathOfLowestCostFragmentTest {
+public class PathOfLowestCostExamplesFragmentTest {
 
-    private PathOfLowestCostFragment fragment;
+    private PathOfLowestCostExamplesFragment fragment;
 
     @Before
     public void setUp() {
-        fragment = new PathOfLowestCostFragment();
+        fragment = new PathOfLowestCostExamplesFragment();
         startFragment(fragment);
         assertNotNull(fragment);
     }
 
     @Test
     public void clickingExampleOneButtonLoadsExampleGridOne() {
-        String expectedContents = PathOfLowestCostFragment.EXAMPLE_GRID_1.asDelimitedString("\t");
+        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_1.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_1_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();
@@ -41,7 +41,7 @@ public class PathOfLowestCostFragmentTest {
 
     @Test
     public void clickingExampleTwoButtonLoadsExampleGridTwo() {
-        String expectedContents = PathOfLowestCostFragment.EXAMPLE_GRID_2.asDelimitedString("\t");
+        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_2.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_2_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();
@@ -50,7 +50,7 @@ public class PathOfLowestCostFragmentTest {
 
     @Test
     public void clickingExampleThreeButtonLoadsExampleGridThree() {
-        String expectedContents = PathOfLowestCostFragment.EXAMPLE_GRID_3.asDelimitedString("\t");
+        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_3.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_3_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();

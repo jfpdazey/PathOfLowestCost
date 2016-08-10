@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class PathOfLowestCostFragment extends Fragment {
+public class PathOfLowestCostExamplesFragment extends Fragment {
 
     public static final Grid EXAMPLE_GRID_1 = new Grid(new int[][]{
             { 3, 4, 1, 2, 8, 6 },
@@ -36,12 +36,12 @@ public class PathOfLowestCostFragment extends Fragment {
 
     private Grid loadedGrid;
 
-    public PathOfLowestCostFragment() {}
+    public PathOfLowestCostExamplesFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.fragment_lowest_cost_main, container, false);
+        View fragmentView = inflater.inflate(R.layout.fragment_lowest_cost_examples_main, container, false);
 
         Button gridOneButton = (Button) fragmentView.findViewById(R.id.grid_1_button);
         gridOneButton.setOnClickListener(new GridOnClickListener());
