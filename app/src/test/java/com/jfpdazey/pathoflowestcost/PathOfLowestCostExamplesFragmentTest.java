@@ -32,7 +32,7 @@ public class PathOfLowestCostExamplesFragmentTest {
 
     @Test
     public void clickingExampleOneButtonLoadsExampleGridOne() {
-        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_1.asDelimitedString("\t");
+        String expectedContents = GridUtils.EXAMPLE_GRID_1.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_1_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();
@@ -41,7 +41,7 @@ public class PathOfLowestCostExamplesFragmentTest {
 
     @Test
     public void clickingExampleTwoButtonLoadsExampleGridTwo() {
-        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_2.asDelimitedString("\t");
+        String expectedContents = GridUtils.EXAMPLE_GRID_2.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_2_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();
@@ -50,7 +50,7 @@ public class PathOfLowestCostExamplesFragmentTest {
 
     @Test
     public void clickingExampleThreeButtonLoadsExampleGridThree() {
-        String expectedContents = PathOfLowestCostExamplesFragment.EXAMPLE_GRID_3.asDelimitedString("\t");
+        String expectedContents = GridUtils.EXAMPLE_GRID_3.asDelimitedString("\t");
         getViewFromFragment(R.id.grid_3_button).performClick();
 
         String gridContents = ((TextView) getViewFromFragment(R.id.grid_contents)).getText().toString();

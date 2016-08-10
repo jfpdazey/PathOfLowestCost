@@ -12,4 +12,5 @@
     <string name="grid_contents_default">Grid is empty</string>
     <string name="results_title">Results</string>
     <string name="enter_custom_data_set_message">Enter your own custom grid below, up to 10 lines. Elements should be separated by spaces.</string>
+    <string name="invalid_grid_message">Please enter a grid consisting of:\n\n-1 to 10 lines\n-5 to 100 numbers per line\n-Only numeric characters</string>
 </resources>
