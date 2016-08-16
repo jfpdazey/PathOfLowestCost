@@ -84,7 +84,7 @@ public class PathOfLowestCostExamplesFragment extends Fragment {
         @Override
         public void onClick(View view) {
             GridVisitor visitor = new GridVisitor(loadedGrid);
-            PathState bestPath = visitor.visitPathsForAllRows().get(0);
+            PathState bestPath = visitor.getBestPathForGrid();
 
             if (bestPath.isSuccessful()) {
                 ((TextView) getView().findViewById(R.id.results_success)).setText("Yes");

@@ -57,7 +57,7 @@ public class PathOfLowestCostCustomFragment extends Fragment {
     private void loadGrid(int[][] contents) {
         Grid validGrid = new Grid(contents);
         GridVisitor visitor = new GridVisitor(validGrid);
-        PathState bestPath = visitor.visitPathsForAllRows().get(0);
+        PathState bestPath = visitor.getBestPathForGrid();
 
         if (bestPath.isSuccessful()) {
             ((TextView) getView().findViewById(R.id.results_success)).setText("Yes");
